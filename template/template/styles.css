@@ -43,12 +43,29 @@ body{
     line-height: normal;
 }
 #movie #titulo{
-    font-size: 20px;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
     margin-bottom: 19px;
     font-weight: 700;
 }
+#movie #foto{
+    transform: translateY(-85%);
+    width: 151px;
+}
+#movie #descricao{
+
+    text-align: justify;
+    margin-left: 38%;
+    width: 325px;
+    height: auto;
+    font-size: 14px;
+    font-weight: 400;
+}
 #movie {
     margin-bottom: 30px;
+    height: 319px;
+    padding: 0 34px;
     color: var(--title);
     list-style: none;
 }
