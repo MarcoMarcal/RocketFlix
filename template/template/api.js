@@ -1,17 +1,6 @@
-import { API_KEY, BASE_URL, IMG_URL, language } from "./main";
+// Substitua o CHAVE_DA_API com a chave gerada no site.
 
- function findmove(){
-    API_KEY, BASE_URL, IMG_URL, language
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODNjMDY4ZGY5NzZlMGE0NjE1YTZiMDcxNjlkNGM4ZSIsInN1YiI6IjY0ZTk3MjI3NTI1OGFlMDBlYWE0NGVmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OjMwTv6VnEennnVGTDliCWifVqAq1GlOHPojTr0o5hU'
-        }
-      };
-      
-      fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
- }
+export const API_KEY = '183c068df976e0a4615a6b07169d4c8e';
+export const BASE_URL = 'https://api.themoviedb.org/3/movie/';
+export const IMG_URL = 'https://image.tmdb.org/t/p/w500';
+export const language = 'language=pt-BR';

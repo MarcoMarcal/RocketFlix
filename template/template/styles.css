@@ -10,16 +10,18 @@
     --bg-button: #e9e6e3;
     --background: linear-gradient(43deg, #102d71 0%, #000000 52%, #c12a23 100%);
     --button: url(./assets/favico/logo.svg);
+    --surface: rgba(255,255,255,0.8);
   }
 body{
     background: var(--background) no-repeat top center/cover;
-    height: 100%;
+    height: 100vh;
 }
 
 #main{
     width: 100%;
-    max-width: 1440px;
-    height: 940px;
+    max-width: 588px;
+    margin: 126px auto 0;
+    padding: 0 24px;
 }
 
 #Cabecalho{
@@ -40,6 +42,17 @@ body{
     font-weight: 700;
     line-height: normal;
 }
+#movie #titulo{
+    font-size: 20px;
+    margin-bottom: 19px;
+    font-weight: 700;
+}
+#movie {
+    margin-bottom: 30px;
+    color: var(--title);
+    list-style: none;
+}
+
 #botao{
     position: relative;
     width: 180.984px;
@@ -71,6 +84,11 @@ button p{
     background: white;
 
     
+}
+button:hover{
+    background: var(--surface);
+    border: 1.5px solid var(--title);
+    transition: background 0.2s
 }
 
 #text{
