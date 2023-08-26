@@ -49,8 +49,18 @@ body{
     position: absolute;
     width: 35.565px;
     height: 25.29px;
-    right: 77%;
+    right: 72%;
     top: 25%;
+}
+button p{
+    color: black;
+    font-size: 12px;
+    font-weight: 700;
+    width: 180.983px;
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left: 23px;
 }
  button{
     width: 180.983px;
@@ -59,8 +69,19 @@ body{
     border-radius: 5px;
     display: inline;
     background: white;
-    color: black;
-    font-size: 12px;
-    font-weight: 700;
+
     
+}
+
+#text{
+    width: 381px;
+    height: 42px;
+    color: var(--title);
+    padding: 26px 0;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }

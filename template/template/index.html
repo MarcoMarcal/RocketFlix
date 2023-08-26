@@ -21,16 +21,39 @@
       />
       <h2 id="Titulo">Não sabe o que assistir?</h2>
     </div>
-      <div id="botao" onclick="findmove()">
-        <button>
+      <div id="botao">
+        
+        <button onclick="findmove()">
           <img src="./assets/favico/logo.svg"
           />
-          Encontrar filme
+          <p>Encontrar filme</p>
         </button>
         <span></span>
+      </div>
+      <div id="text">
+        <p>Clique em "Encontrar filme" que traremos informações de algum filme para você assistir hoje.</p>
       </div>
 </div>
   <script type="module" src="main.js"></script>
 </body>
+
+<script>
+   function findmove(){
+   
+    const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODNjMDY4ZGY5NzZlMGE0NjE1YTZiMDcxNjlkNGM4ZSIsInN1YiI6IjY0ZTk3MjI3NTI1OGFlMDBlYWE0NGVmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OjMwTv6VnEennnVGTDliCWifVqAq1GlOHPojTr0o5hU'
+        }
+      };
+      
+      fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc', options)
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(err => console.error(err));
+ }
+</script>
+
 
 </html>
