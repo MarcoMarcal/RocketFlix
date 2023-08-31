@@ -23,68 +23,58 @@
     </div>
 
     <div id="movie" class="movie">
-      <h2 id="movie-title"></h2>
-      <p><strong>Data de Lançamento:</strong> <span id="movie-release"></span></p>
-      <p><strong>Descrição:</strong> <span id="movie-overview"></span></p>
-      <img id="movie-poster" src="" alt="Movie Poster">
     </div>
 
     <div id="botao">
-      <button onclick="botaofunc()"> <!-- Corrigi a chamada da função aqui -->
+      <button onclick="findmovie()"> <!-- Corrigi a chamada da função aqui -->
         <img src="./assets/favico/logo.svg" />
         <p>Encontrar filme</p>
       </button>
       <span></span>
     </div> 
-
     <div id="text">
       <p>Clique em "Encontrar filme" que traremos informações de algum filme para você assistir hoje.</p>
     </div>
   </div>
-  <script type="module" src="main.js"></script>
 </body>
 
 <script>
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODNjMDY4ZGY5NzZlMGE0NjE1YTZiMDcxNjlkNGM4ZSIsInN1YiI6IjY0ZTk3MjI3NTI1OGFlMDBlYWE0NGVmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OjMwTv6VnEennnVGTDliCWifVqAq1GlOHPojTr0o5hU'
-    }
-  };
 
-  const movieTitle = document.getElementById('movie-title');
-  const movieReleaseDate = document.getElementById('movie-release');
-  const movieOverview = document.getElementById('movie-overview');
-  const moviePoster = document.getElementById('movie-poster');
-  let pfilmeIndex = 0; // Defina como let
-
-  const moviesData = [];
-
-  async function findmove() {
-    try {
-      const response = await fetch('https://api.themoviedb.org/3/search/movie?query=homem%20aranha&include_adult=false&language=pt-BR&page=1', options);
-      const data = await response.json();
-      moviesData = data.results;
-      mostrarfilme(pfilmeIndex);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  function findmovie(){
+        const options = {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODNjMDY4ZGY5NzZlMGE0NjE1YTZiMDcxNjlkNGM4ZSIsInN1YiI6IjY0ZTk3MjI3NTI1OGFlMDBlYWE0NGVmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OjMwTv6VnEennnVGTDliCWifVqAq1GlOHPojTr0o5hU'
+          }
+        };
+        
+        const movies = document.getElementById('movie');
   
-  function mostrarfilme(index){
-    const movie = moviesData[index];
-    movieTitle.textContent = movie.title;
-    movieReleaseDate.textContent = movie.release_date;
-    movieOverview.textContent = movie.overview;
-    moviePoster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-  }
-
-  function botaofunc(){
-    pfilmeIndex = (pfilmeIndex + 1) % moviesData.length;
-    mostrarfilme(pfilmeIndex);
-  }
-
-  findmove();
-</script>
-</html>
+        const pfilme = 0;
+        const moviesData = [];
+  
+  
+        fetch('https://api.themoviedb.org/3/search/movie?query=homem%20aranha&include_adult=false&language=pt-BR&page=1', options)
+          .then(response => response.json())
+          .then(data => {
+            data.results.forEach(movie => {
+              const li = document.createElement('li');
+              li.innerHTML = `
+              <p id="titulo">${movie.title}</p>
+              <p id="descricao">${movie.overview}</p>
+              <img id="foto" src="https://image.tmdb.org/t/p/w500${movie.poster_path}"></img>
+              `;
+              movies.innerHTML = '';
+            movies.appendChild(li);
+          })
+        })
+          .then(response => console.log(response))
+          .catch(err => console.error(err));
+  
+  
+  
+  
+   }
+  </script>
+  </html>
