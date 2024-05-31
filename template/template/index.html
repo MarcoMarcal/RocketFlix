@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="shortcut icon" href="/assets/favico/favicon.ico" type="image/x-icon">
   <title>Rocketflix</title>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +25,7 @@
     </div>
 
     <div id="botao">
-      <button onclick="findmovie()"> <!-- Corrigi a chamada da função aqui -->
+      <button id="nextMovie">
         <img src="./assets/favico/logo.svg" />
         <p>Encontrar filme</p>
       </button>
@@ -38,43 +37,5 @@
   </div>
 </body>
 
-<script>
-
-  function findmovie(){
-        const options = {
-          method: 'GET',
-          headers: {
-            accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODNjMDY4ZGY5NzZlMGE0NjE1YTZiMDcxNjlkNGM4ZSIsInN1YiI6IjY0ZTk3MjI3NTI1OGFlMDBlYWE0NGVmMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OjMwTv6VnEennnVGTDliCWifVqAq1GlOHPojTr0o5hU'
-          }
-        };
-        
-        const movies = document.getElementById('movie');
-  
-        const pfilme = 0;
-        const moviesData = [];
-  
-  
-        fetch('https://api.themoviedb.org/3/search/movie?query=homem%20aranha&include_adult=false&language=pt-BR&page=1', options)
-          .then(response => response.json())
-          .then(data => {
-            data.results.forEach(movie => {
-              const li = document.createElement('li');
-              li.innerHTML = `
-              <p id="titulo">${movie.title}</p>
-              <p id="descricao">${movie.overview}</p>
-              <img id="foto" src="https://image.tmdb.org/t/p/w500${movie.poster_path}"></img>
-              `;
-              movies.innerHTML = '';
-            movies.appendChild(li);
-          })
-        })
-          .then(response => console.log(response))
-          .catch(err => console.error(err));
-  
-  
-  
-  
-   }
-  </script>
+<script src="main.js"> </script>
   </html>
