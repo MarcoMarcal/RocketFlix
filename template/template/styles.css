@@ -13,26 +13,16 @@
     --surface: rgba(255,255,255,0.8);
   }
 body{
-    background: var(--background) no-repeat top center/cover;
-    height: 100vh;
+    background: var(--background) no-repeat top center;
 }
 
-#main{
-    width: 100%;
-    max-width: 588px;
-    margin: 126px auto 0;
-    padding: 0 24px;
-}
-
-#Cabecalho{
-    position: relative;
-    width: 100%;
-    width: 533px;
-    margin: 30px auto;
-    flex-shrink: 0;
-    display: block;
-    text-align: center;
+html{
+    height: 113%;
     
+}
+#Cabecalho{
+    margin: 30px auto;
+    text-align: center;
 }
 #Titulo{
     
@@ -42,29 +32,36 @@ body{
     font-weight: 700;
     line-height: normal;
 }
+
 #movie #titulo{
-    font-size: 16px;
-    width: 100%;
+    font-size: 24px;
     text-align: center;
-    margin-bottom: 19px;
+    margin-bottom: 50px;
     font-weight: 700;
 }
+#divisao{
+    display: flex;
+   
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+}
 #movie #foto{
-    transform: translateY(-85%);
-    width: 151px;
+
+    width: 35vh;
+    
 }
 #movie #descricao{
-
+    display: flex;
     text-align: justify;
-    margin-left: 38%;
-    width: 325px;
-    height: auto;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 400;
 }
 #movie {
-    margin-bottom: 30px;
-    height: 319px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
     padding: 0 34px;
     color: var(--title);
     list-style: none;
@@ -92,7 +89,7 @@ button p{
     top: 30%;
     left: 23px;
 }
- button{
+button{
     width: 180.983px;
     height: 47px;
     border: 2px solid #1a1a1a;
@@ -109,14 +106,24 @@ button:hover{
 }
 
 #text{
-    width: 381px;
-    height: 42px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     color: var(--title);
-    padding: 26px 0;
-    margin: 0 auto;
+    margin: 26px auto;
     text-align: center;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
+@media screen and (max-width: 760px) {
+    #divisao {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    html{
+        background: #102d71;
+    }
+  }
